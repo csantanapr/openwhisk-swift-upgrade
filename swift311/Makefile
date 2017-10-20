@@ -18,7 +18,6 @@ update: build/WeatherBot.zip
 
 # build weather bot service
 build/WeatherBot.zip: actions/WeatherBot/Sources/main.swift
-	cat actions/WeatherBot/Sources/main.swift > build/main.swift
 	./compile.sh WeatherBot $(KIND) $(BUILD_FLAGS)
 	$(WSK_CLI) action update $(PACKAGE)/WeatherBot build/WeatherBot.zip --kind $(KIND) \
 		--timeout 7000 --memory 128 \

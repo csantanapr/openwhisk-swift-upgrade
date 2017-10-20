@@ -40,7 +40,6 @@ fi
 # Add in the OW specific bits
 cat /swift3Action/epilogue.swift >> /swift3Action/spm-build/main.swift
 echo '_run_main(mainFunction:main)' >> /swift3Action/spm-build/main.swift
-cp /swift3Action/spm-build/main.swift /owexec/build/finalmain.swift
 
 echo \"Compiling $1...\"
 cd /swift3Action/spm-build
