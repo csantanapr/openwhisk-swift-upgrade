@@ -62,3 +62,17 @@ To switch CLI from `bx wsk` to `wsk` edit the [swift311/Makefile](swift311/Makef
 WSK_CLI = bx wsk
 ```
 
+### Handling errors:
+If you get an error message with `error: unsatisfiable` from the `swift build` you need to update the Package.swift to be compatible with swift 3.1.1. For example specify version `1.7.10` for Kitura-net like this:
+```swift
+import PackageDescription
+
+let package = Package(
+    name: "Action",
+    dependencies: [
+        .Package(url: "https://github.com/IBM-Swift/CCurl.git", "0.2.3"),
+        .Package(url: "https://github.com/IBM-Swift/Kitura-net.git", "1.7.10"),
+        .Package(url: "https://github.com/IBM-Swift/SwiftyJSON.git", "15.0.1"),
+    ]
+)
+```
