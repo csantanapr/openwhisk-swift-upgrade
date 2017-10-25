@@ -56,6 +56,7 @@ fi
 
 
 echo 'Creating archive $1.zip...'
+mkdir -p /owexec/build
 # cd /swift3Action/spm-build
 zip \"/owexec/build/$1.zip\" .build/release/Action
 

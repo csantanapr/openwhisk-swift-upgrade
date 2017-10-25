@@ -76,3 +76,18 @@ let package = Package(
     ]
 )
 ```
+If you have your own specification for dependencies, including other swift packages from the ones mentioned above, you would need to look for the right set of versions for your dependencies.
+One approach is to specify the `majorVersion` and letting swift package manager pick the correct combination of versions that it satisfy your dependency tree.
+For example using a Package.swift file like the following:
+```swift
+import PackageDescription
+
+let package = Package(
+    name: "Action",
+    dependencies: [
+        .Package(url: "https://github.com/IBM-Swift/Kitura-net.git",   majorVersion: 1),
+        .Package(url: "https://github.com/IBM-Swift/SwiftyJSON.git",   majorVersion: 15),
+        .Package(url: "https://github.com/IBM-Swift/Kitura-redis.git", majorVersion: 1)
+    ]
+)
+```
